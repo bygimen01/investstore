@@ -163,69 +163,78 @@
     }</style>
 </head>
 {% block content %}
-<body class="html not-front not-logged-in no-sidebars page-user page-user-login" onselectstart="return false;"
-      oncopy="return false;" oncontextmenu="return false;">
-<div id="auth_box" class="login">
-    <div id="top_part">
-        <h1 id="the_logo">
-            <a href="/">
-                Умные <span>инвестиции</span>
-            </a>
-        </h1>
-    </div>
+    <body class="html not-front not-logged-in no-sidebars page-user page-user-login" onselectstart="return false;"
+          oncopy="return false;" oncontextmenu="return false;">
+    <div id="auth_box" class="login">
+        <div id="top_part">
+            <h1 id="the_logo">
+                <a href="/">
+                    Умные <span>инвестиции</span>
+                </a>
+            </h1>
+        </div>
 
-    <div id="middle_part">
-        <h2 class="title">Вход в личный кабинет</h2>
+        <div id="middle_part">
+            <h2 class="title">Вход в личный кабинет</h2>
 
 
-        <div class="region region-content">
-            <div class="block block-system" id="block-system-main">
-                <div class="content">
-                    <form action="/user/login" method="post" id="user-login" accept-charset="UTF-8">
-                        <div>
-                            <div class="form-item form-type-textfield form-item-name">
-                                <label class="" for="edit-mail"> E-mail <span class="form-required"
-                                                                              title="Это поле обязательно для заполнения.">*</span>
-                                </label>
-                                <input autofocus="autofocus" type="email" id="edit-mail" name="email" value="" size="60"
-                                       maxlength="60" class="form-text required">
-                                <div class="description">Введите ваш e-mail.</div>
+            <div class="region region-content">
+                <div class="block block-system" id="block-system-main">
+                    <div class="content">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="notification is-danger">
+                                    {{ messages[0] }}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <form action="/user/login" method="post" id="user-login" accept-charset="UTF-8">
+                            <div>
+                                <div class="form-item form-type-textfield form-item-name">
+                                    <label class="" for="edit-mail"> E-mail <span class="form-required"
+                                                                                  title="Это поле обязательно для заполнения.">*</span>
+                                    </label>
+                                    <input autofocus="autofocus" type="email" id="edit-mail" name="email" value=""
+                                           size="60"
+                                           maxlength="60" class="form-text required">
+                                    <div class="description">Введите ваш e-mail.</div>
+                                </div>
+                                <div class="form-item form-type-password form-item-pass">
+                                    <label class="" for="edit-pass"> Пароль <span class="form-required"
+                                                                                  title="Это поле обязательно для заполнения.">*</span>
+                                    </label>
+                                    <input type="password" id="edit-pass" name="pass" size="60" maxlength="128"
+                                           class="form-text required">
+                                    <div class="description">Введите пароль, который пришел Вам на e-mail.</div>
+                                </div>
+                                <input type="hidden" name="form_build_id"
+                                       value="form-kvjW-mUvsBFWe3w5MNjyjALUxuGf7iemySDeSD8XTjc">
+                                <input type="hidden" name="form_id" value="user_login">
+                                <div class="form-actions form-wrapper" id="edit-actions"><input type="submit"
+                                                                                                id="edit-submit"
+                                                                                                name="op"
+                                                                                                value="Войти"
+                                                                                                class="form-submit art-button">
+                                </div>
                             </div>
-                            <div class="form-item form-type-password form-item-pass">
-                                <label class="" for="edit-pass"> Пароль <span class="form-required"
-                                                                              title="Это поле обязательно для заполнения.">*</span>
-                                </label>
-                                <input type="password" id="edit-pass" name="pass" size="60" maxlength="128"
-                                       class="form-text required">
-                                <div class="description">Введите пароль, который пришел Вам на e-mail.</div>
-                            </div>
-                            <input type="hidden" name="form_build_id"
-                                   value="form-kvjW-mUvsBFWe3w5MNjyjALUxuGf7iemySDeSD8XTjc">
-                            <input type="hidden" name="form_id" value="user_login">
-                            <div class="form-actions form-wrapper" id="edit-actions"><input type="submit"
-                                                                                            id="edit-submit" name="op"
-                                                                                            value="Войти"
-                                                                                            class="form-submit art-button">
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="bottom_part">
-        <div class="password_link">
-            <a href="/user/password">Забыли пароль?</a></div>
+        <div id="bottom_part">
+            <div class="password_link">
+                <a href="/user/password">Забыли пароль?</a></div>
 
-        <div class="back_link">
-            <a href="/">← На главную </a>
+            <div class="back_link">
+                <a href="/">← На главную </a>
+            </div>
         </div>
     </div>
-</div>
-<script type="text/javascript"
-        src="https://smart-invest.su/sites/all/modules/copyprevention/copyprevention.js?r4x6wa"></script>
+    <script type="text/javascript"
+            src="https://smart-invest.su/sites/all/modules/copyprevention/copyprevention.js?r4x6wa"></script>
 
-</body>
+    </body>
 {% endblock %}
 </html>
